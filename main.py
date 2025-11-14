@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import psycopg2
+import psycopg
 import os
 from urllib.parse import urlparse
 
@@ -10,7 +10,7 @@ DATABASE_URL = os.environ.get('postgresql://serverless_db_my0t_user:kubMPbqqjXn5
                               '-d4bieu4hg0os73evl5tg-a/serverless_db_my0t')
 if DATABASE_URL:
     url = urlparse(DATABASE_URL)
-    conn = psycopg2.connect(
+    conn = psycopg.connect(
         database=url.path[1:],
         user=url.username,
         password=url.password,
